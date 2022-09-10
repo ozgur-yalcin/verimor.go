@@ -3,6 +3,7 @@ package verimor
 import (
 	"bytes"
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -29,12 +30,18 @@ type Message struct {
 }
 
 func (api *API) Sms(request Request) bool {
+	if len(request.Messages) > 50000 {
+		log.Println("max 50000 messages")
+		return false
+	}
 	postdata, err := json.Marshal(request)
 	if err != nil {
+		log.Println(err)
 		return false
 	}
 	res, err := http.Post(ApiUrl, "application/json; charset=utf-8", bytes.NewReader(postdata))
 	if err != nil {
+		log.Println(err)
 		return false
 	}
 	defer res.Body.Close()
