@@ -1,3 +1,3 @@
-module github.com/ozgur-soft/verimor.go
+module github.com/ozgur-yalcin/verimor.go
 
 go 1.17
