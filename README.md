@@ -1,12 +1,12 @@
-[![license](https://img.shields.io/:license-mit-blue.svg)](https://github.com/ozgur-soft/verimor.go/blob/master/LICENSE.md)
-[![documentation](https://pkg.go.dev/badge/github.com/ozgur-soft/verimor.go)](https://pkg.go.dev/github.com/ozgur-soft/verimor.go/src)
+[![license](https://img.shields.io/:license-mit-blue.svg)](https://github.com/ozgur-yalcin/verimor.go/blob/master/LICENSE.md)
+[![documentation](https://pkg.go.dev/badge/github.com/ozgur-yalcin/verimor.go)](https://pkg.go.dev/github.com/ozgur-yalcin/verimor.go/src)
 
 # Verimor.go
 An easy-to-use verimor.com.tr API with golang
 
 # Installation
 ```bash
-go get github.com/ozgur-soft/verimor.go
+go get github.com/ozgur-yalcin/verimor.go
 ```
 
 # Usage
@@ -16,7 +16,7 @@ package main
 import (
 	"fmt"
 
-	verimor "github.com/ozgur-soft/verimor.go/src"
+	verimor "github.com/ozgur-yalcin/verimor.go/src"
 )
 
 func main() {
