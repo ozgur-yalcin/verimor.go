@@ -51,6 +51,7 @@ func (api *API) Sms(request Request) bool {
 		if id, err := strconv.Atoi(string(body)); err == nil && id > 0 {
 			return true
 		}
+		log.Println(string(body))
 	}
 	return false
 }
