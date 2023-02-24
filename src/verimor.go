@@ -49,7 +49,7 @@ func (api *API) Sms(request Request) bool {
 	defer res.Body.Close()
 	if body, err := io.ReadAll(res.Body); err == nil {
 		if id, err := strconv.Atoi(string(body)); err == nil && id > 0 {
-			return true
+			return res.StatusCode == 200
 		}
 		log.Println(string(body))
 	}
