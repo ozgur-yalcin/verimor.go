@@ -3,10 +3,10 @@ package verimor
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 const ApiUrl = "http://sms.verimor.com.tr/v2/send.json"
@@ -47,7 +47,10 @@ func (api *API) Sms(request Request) bool {
 		return false
 	}
 	defer res.Body.Close()
-	x, _ := ioutil.ReadAll(res.Body)
-	fmt.Println(string(x))
-	return true
+	if body, err := io.ReadAll(res.Body); err == nil {
+		if id, err := strconv.Atoi(string(body)); err == nil && id > 0 {
+			return true
+		}
+	}
+	return false
 }
