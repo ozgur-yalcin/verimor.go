@@ -3,6 +3,8 @@ package verimor
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -45,5 +47,7 @@ func (api *API) Sms(request Request) bool {
 		return false
 	}
 	defer res.Body.Close()
+	x, _ := ioutil.ReadAll(res.Body)
+	fmt.Println(string(x))
 	return true
 }
