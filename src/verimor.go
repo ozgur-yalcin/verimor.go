@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-const ApiUrl = "http://sms.verimor.com.tr/v2/send.json"
+const ApiUrl = "https://sms.verimor.com.tr/v2/send.json"
 
 type API struct{}
 
