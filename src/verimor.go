@@ -47,11 +47,13 @@ func (api *API) Sms(request Request) bool {
 		return false
 	}
 	defer res.Body.Close()
-	if body, err := io.ReadAll(res.Body); err == nil {
-		if id, err := strconv.Atoi(string(body)); err == nil && id > 0 {
-			return res.StatusCode == 200
+	if res.StatusCode == http.StatusOK {
+		if body, err := io.ReadAll(res.Body); err == nil {
+			if id, err := strconv.Atoi(string(body)); err == nil && id > 0 {
+				return true
+			}
+			log.Println(string(body))
 		}
-		log.Println(string(body))
 	}
 	return false
 }
