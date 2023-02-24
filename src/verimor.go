@@ -36,12 +36,12 @@ func (api *API) Sms(request Request) bool {
 		log.Println("max 50000 messages")
 		return false
 	}
-	postdata, err := json.Marshal(request)
+	data, err := json.Marshal(request)
 	if err != nil {
 		log.Println(err)
 		return false
 	}
-	res, err := http.Post(ApiUrl, "application/json; charset=utf-8", bytes.NewReader(postdata))
+	res, err := http.Post(ApiUrl, "application/json; charset=utf-8", bytes.NewReader(data))
 	if err != nil {
 		log.Println(err)
 		return false
